@@ -2,7 +2,7 @@
 """
 Setup
   pip install PyGithub pyyaml
-  PowerShell:  $env:GITHUB_TOKEN="your_token"      (bash: export GITHUB_TOKEN=...)
+  PowerShell:  $env:GITHUB_TOKEN="your_token"      
 
 Usage
   python mine_pipelines_v2.py --limit 20          # pilot run, check results by hand first
@@ -107,9 +107,8 @@ SOFT_PATTERNS = [
     r"exit-code['\"]?:\s*['\"]?0\b", r"--exit-code[ =]['\"]?0\b", r"\|\|\s*true", r"\|\|\s*exit 0",
 ]
 
-
 # ---------------------------------------------------------------------------
-# PURE FUNCTIONS (no network) - these are unit-testable
+#  FUNCTIONS (no network) 
 # ---------------------------------------------------------------------------
 def _truthy(v):
     return v is True or (isinstance(v, str) and v.strip().lower() == "true")
